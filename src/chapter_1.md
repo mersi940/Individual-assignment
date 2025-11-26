@@ -1,9 +1,9 @@
 # Chapter 1
 ```plantuml
 @startuml
-[*] --> Initialized : System Start
-
-
+[*] --> INIT
+Init--> CHECK_SOIL: Start Task
+CHECK_Soil--> UPDATE_GVL : Moisture read
 @enduml
 
 ```
