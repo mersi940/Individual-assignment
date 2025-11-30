@@ -2,9 +2,9 @@
 ```plantuml
 @startuml
 [*] --> Init
-Init --> ReadSensors
-ReadSensors --> UpdateGVL
-UpdateGVL --> ReadSensors : Loop
+Init --> ReadSensors(Moisture level and temperature)
+ReadSensors --> Changing variabiles
+Changning variabiles --> ReadSensors : Loop
 @enduml
 
 ```
