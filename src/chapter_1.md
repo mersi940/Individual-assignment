@@ -2,10 +2,11 @@
 ```plantuml
 @startuml
 
-[*] --> Initial state
-Initial state --> ReadSensors(Moisture level and temperature)
-ReadSensors --> Changing variabiles
-Changning variabiles --> ReadSensors : Loop
+
+[*] --> Initial_state
+Initial_state --> ReadSensors
+ReadSensors --> Changing_variabiles
+Changing_variabiles --> ReadSensors : Loop
 @enduml
 
 ```
