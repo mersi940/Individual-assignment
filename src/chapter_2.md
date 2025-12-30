@@ -8,6 +8,7 @@ CheckConditions--> Watering : Water needed
 CheckConditions--> Idle : No need
 
 
+
 @enduml
 
 ```
