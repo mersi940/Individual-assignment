@@ -2,13 +2,11 @@
 ```plantuml
 @startuml
 
-[*] --> State1
-State1 --> [*]
-State1 : this is a string
-State1 : this is another string
+[*] --> Initial_State
+Initial_State--> CheckConditions
+CheckConditions--> Watering : Water needed
+CheckConditions--> Idle : No need
 
-State1 -> State2
-State2 --> [*]
 
 @enduml
 
