@@ -1,10 +1,9 @@
 # Chapter 3
 ```plantuml
 @startuml
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
-
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: Another authentication Response
+MonitorTask--> GVL: tell water and moisture 
+MonitorTask--> GVL: tell water needed
+WaterTask--> GVL:
+WaterTask--> GVL:
 @enduml
 ```
