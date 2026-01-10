@@ -1,1 +1,0 @@
-# Watering task diagram
