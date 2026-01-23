@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <Task Name="PlcTask" Id="{117f1008-cb0a-4799-9c8c-65a7f2e97c3c}">
+    <!--CycleTime in micro seconds.-->
+    <CycleTime>10000</CycleTime>
+    <Priority>20</Priority>
+    <PouCall>
+      <Name>MonitoringTheSoilTask</Name>
+    </PouCall>
+    <TaskFBGuid>{7f9e571c-703f-474f-9662-4a682db25bbf}</TaskFBGuid>
+    <Fb_init>{c467d020-30aa-49e5-b43f-11cecd17b7db}</Fb_init>
+    <Fb_exit>{f5fe0409-1691-4c5b-b234-6a0c3cdd1274}</Fb_exit>
+    <CycleUpdate>{b633b0d9-53ae-44cd-887a-71b764698578}</CycleUpdate>
+    <PostCycleUpdate>{58d450fc-d7ec-42f0-a5b9-0e7741866e67}</PostCycleUpdate>
+  </Task>
+</TcPlcObject>

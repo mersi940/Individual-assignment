@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <Task Name="Task_4" Id="{6c7a4416-b98b-4b97-b147-43c11fd107d4}">
+    <!--CycleTime in micro seconds.-->
+    <CycleTime>10000</CycleTime>
+    <Priority>1</Priority>
+    <PouCall>
+      <Name>WateringTask</Name>
+    </PouCall>
+    <TaskFBGuid>{ed895160-6c40-4672-b458-6baecc6d3945}</TaskFBGuid>
+    <Fb_init>{470fd918-d90b-4b79-b753-d887ce62b214}</Fb_init>
+    <Fb_exit>{cd17c37e-e5f5-49d6-8d2d-88d94823ba6d}</Fb_exit>
+    <CycleUpdate>{709ba268-62f4-4493-83a5-3e4f4f2b61ac}</CycleUpdate>
+    <PostCycleUpdate>{79d1389c-484d-4681-8f4b-8c9b1423eb7d}</PostCycleUpdate>
+  </Task>
+</TcPlcObject>

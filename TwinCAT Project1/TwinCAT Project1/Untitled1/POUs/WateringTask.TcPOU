@@ -3,9 +3,12 @@
   <POU Name="WateringTask" Id="{b5a1694e-819d-48dc-a239-eb210722768b}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM WateringTask
 VAR
-	WaterTimer: TON;
-state : INT	 :=0; 	
-Delay: Ton;
+	WaterTimer:TON;
+	Delay:TON;
+	state:INT;
+	Moisture: REAL;
+	Temp: REAL;
+	WaterRequired: BOOL;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -13,34 +16,35 @@ END_VAR
 //Watering control
 CASE state OF
 	
-END_CASE
-0:// Initial position
-WaterON:= FALSE;
-state:=1;
-1:// Checking the conditions
-IF WaterRequired THEN
-            WaterDuration := GetWaterDuration(Moisture, Temp);
-            WaterOn := TRUE;
-            WaterTimer(IN := TRUE, PT := WaterDuration);
-            nState := 2;
-        ELSE
-            nState := 3;
-        END_IF;
-		
-2:  // Watering
-WaterTimer(IN := TRUE);
-        IF WaterTimer.Q THEN
-          WaterON := FALSE;
-WaterRequired := FALSE;
-WaterTimer(IN := FALSE);
-            state := 3;
-3:// Idle
-Delay(IN:=TRUE, PT:=T#5S);
-IF NOT(Delay.Q) THEN
-	RETURN;
-END_IF
-Delay(In:=FALSE);
-state:=1;		
+	
+	0:// Initial position
+	gvl.WaterON:= FALSE;
+	state:=1;
+	1:// Checking the conditions
+	IF gvl.WaterRequired THEN
+				gvl.WaterDuration := GetWaterDuration(gvl.Moisture, Temp);
+				gvl.WaterON := TRUE;	
+				WaterTimer(IN := TRUE, PT := gvl.WaterDuration);
+				State := 2;
+			ELSE
+				State := 3;
+			END_IF;
+			
+	2:  // Watering
+	WaterTimer(IN := TRUE);
+			IF WaterTimer.Q THEN
+			  gvl.WaterON := FALSE;
+	GVL.WaterRequired := FALSE;
+	END_IF
+	WaterTimer(IN := FALSE);
+				state := 3;
+	3:// Idle
+	Delay(IN:=TRUE, PT:=T#5S);
+	IF NOT(Delay.Q) THEN
+		RETURN;
+	END_IF
+	Delay(In:=FALSE);
+	state:=1;		
 END_CASE]]></ST>
     </Implementation>
     <LineIds Name="WateringTask">
@@ -55,6 +59,7 @@ END_CASE]]></ST>
       <LineId Id="30" Count="0" />
       <LineId Id="37" Count="0" />
       <LineId Id="32" Count="2" />
+      <LineId Id="69" Count="0" />
       <LineId Id="38" Count="0" />
       <LineId Id="36" Count="0" />
       <LineId Id="55" Count="0" />

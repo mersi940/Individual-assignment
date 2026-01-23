@@ -6,16 +6,30 @@ VAR_INPUT
 	MoistIn:REAL ;
 	TempIn:REAL;
 END_VAR
+VAR
+	rSeconds : REAL; 
+    udiMs : UDINT; // milliseconds as unsigned integer
+END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[GetWaterDuration:= REAL_TO_TIME(10 + (TempIn - 20) - (MoistIn * 0.1)) * T#1S;
-IF GetWaterDuration < T#5S THEN GetWaterDuration :=T#5S; END_IF;
-IF GetWaterDuration > T#20S THEN GetWaterDuration :=T#20S; END_IF;
+      <ST><![CDATA[// Calculate duration in seconds
+rSeconds := 10.0 + (TempIn - 20.0) - (MoistIn * 0.1);
+
+// Convert to ms, then to UDINT
+udiMs := LREAL_TO_UDINT(REAL_TO_LREAL(rSeconds) * 1000.0);
+
+// Convert to TIME
+GetWaterDuration := UDINT_TO_TIME(udiMs);
+
+// Clamp between 5s and 30s
+IF GetWaterDuration < T#5s THEN GetWaterDuration := T#5s; END_IF;
+IF GetWaterDuration > T#30s THEN GetWaterDuration := T#30s; END_IF;
 
 ]]></ST>
     </Implementation>
     <LineIds Name="GetWaterDuration">
-      <LineId Id="21" Count="3" />
+      <LineId Id="37" Count="10" />
+      <LineId Id="23" Count="1" />
       <LineId Id="12" Count="0" />
     </LineIds>
   </POU>

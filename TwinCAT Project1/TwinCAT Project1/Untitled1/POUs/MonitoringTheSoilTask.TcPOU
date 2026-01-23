@@ -10,7 +10,7 @@ VAR
 	WaterRequired: BOOL;
 END_VAR
 
-0]]></Declaration>
+]]></Declaration>
     <Implementation>
       <ST><![CDATA[CASE state OF
 	0:// Initial position
@@ -19,8 +19,8 @@ END_VAR
 	state :=1;
 	
 	1: //ReadSensors
-	Moisture:= Moisture - 1
-	IF Moisture < 0 THEN Moisture :=0 END_IF;
+	Moisture:= Moisture - 1;
+	IF Moisture < 0 THEN Moisture :=0 ;END_IF;
 	Temp := Temp;
 	state := 2;
 	 
@@ -39,7 +39,9 @@ END_CASE]]></ST>
       <LineId Id="16" Count="0" />
       <LineId Id="18" Count="0" />
       <LineId Id="23" Count="1" />
-      <LineId Id="27" Count="9" />
+      <LineId Id="27" Count="2" />
+      <LineId Id="50" Count="0" />
+      <LineId Id="31" Count="5" />
       <LineId Id="38" Count="1" />
       <LineId Id="26" Count="0" />
       <LineId Id="21" Count="0" />
